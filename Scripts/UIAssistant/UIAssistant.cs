@@ -6,10 +6,8 @@ using System.Linq;
 
 namespace anogamelib
 {
-    public class UIAssistant : MonoBehaviour
+    public class UIAssistant : Singleton<UIAssistant>
     {
-        public static UIAssistant Instance;
-
         public List<Transform> UImodules = new List<Transform>();
 
         public delegate void Action();
@@ -28,25 +26,14 @@ namespace anogamelib
             ArraysConvertation(); // filling dictionaries
             Page defaultPage = GetDefaultPage();
             if (defaultPage != null)
+            {
                 ShowPage(defaultPage, true); // Showing of starting page
+            }
         }
 
-        void Awake()
+        public override void Initialize()
         {
-            if (Instance == null)
-            {
-                System.Type type = typeof(UIAssistant);
-                Instance = GameObject.FindObjectOfType(type) as UIAssistant;
-            }
-            else
-            {
-                if (Instance != this)
-                {
-                    Destroy(gameObject);
-                }
-            }
-            DontDestroyOnLoad(gameObject);
-
+            base.Initialize();
             screenSize = new Vector2(Screen.width, Screen.height);
         }
 
