@@ -130,7 +130,9 @@ namespace anogamelib
         {
             PanelPage panel = panels.Find(x => x.name == panel_name);
             if (panel != null)
+            {
                 panel.m_bFreez = value;
+            }
         }
 
         public void SetPanelVisible(string panel_name, bool visible, bool immediate = false)
@@ -139,9 +141,13 @@ namespace anogamelib
             if (panel)
             {
                 if (immediate)
+                {
                     panel.SetVisible(visible, true);
+                }
                 else
+                {
                     panel.SetVisible(visible);
+                }
             }
         }
 
@@ -149,7 +155,9 @@ namespace anogamelib
         public void HideAll()
         {
             foreach (PanelPage panel in panels)
+            {
                 panel.SetVisible(false);
+            }
         }
 
         // show previous page

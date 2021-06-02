@@ -29,6 +29,7 @@ namespace anogamelib
         public string show; // Name of hiding m_animationation
 
         private string m_currentClip = "";
+        public virtual void showUpdate(bool _bVisible) { }
 
         Animation m_animation;
         void Awake()
@@ -43,8 +44,11 @@ namespace anogamelib
 
         public void SetVisible(bool visible, bool immediate = false)
         {
+            showUpdate(visible);
             if (gameObject.activeSelf == visible)
+            {
                 return;
+            }
             m_currentClip = "";
             if (!visible)
             {
@@ -56,7 +60,7 @@ namespace anogamelib
                     return;
                 }
             }
-            if (visible)
+            if (visible)//else
             {
                 gameObject.SetActive(true);
                 if (show != "")
@@ -69,11 +73,17 @@ namespace anogamelib
                 }
             }
             if (m_currentClip == "")
+            {
                 return;
+            }
             if (immediate)
+            {
                 m_animation[m_currentClip].time = m_animation[m_currentClip].length;
+            }
             else
+            {
                 Play(m_currentClip);
+            }
         }
 
         void Play(string clip)
