@@ -8,10 +8,11 @@ namespace anogamelib
 	public abstract class StateMachineBase<T> : MonoBehaviour where T : StateMachineBase<T>
 	{
 		protected StateBase<T> stateCurrent;
-
+		/*
+		 * しばらく使わないのでカット
 		public UnityEvent OnBegin = new UnityEvent();
 		public UnityEvent OnEnd = new UnityEvent();
-
+		*/
 		protected virtual void OnUpdatePrev() { }
 		protected virtual void OnUpdateAfter() { }
 
