@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace anogamelib
 {
@@ -30,6 +31,7 @@ namespace anogamelib
 
         private string m_currentClip = "";
         public virtual void showUpdate(bool _bVisible) { }
+        public UnityEventBool OnShowEvent = new UnityEventBool();
 
         Animation m_animation;
         void Awake()
@@ -44,6 +46,7 @@ namespace anogamelib
 
         public void SetVisible(bool visible, bool immediate = false)
         {
+            OnShowEvent.Invoke(visible);
             showUpdate(visible);
             if (gameObject.activeSelf == visible)
             {
