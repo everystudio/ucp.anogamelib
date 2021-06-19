@@ -15,6 +15,10 @@ namespace anogamelib
 		public virtual void OnEnterState()
 		{
 		}
+		public virtual IEnumerator OnEnterStateEnumerator()
+		{
+			yield break;
+		}
 		public virtual void OnUpdateState()
 		{
 		}

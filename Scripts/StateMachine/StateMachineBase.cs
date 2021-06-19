@@ -27,6 +27,7 @@ namespace anogamelib
 			}
 			stateCurrent = _state;
 			stateCurrent.OnEnterState();
+			StartCoroutine(stateCurrent.OnEnterStateEnumerator());
 		}
 		private void Update()
 		{
