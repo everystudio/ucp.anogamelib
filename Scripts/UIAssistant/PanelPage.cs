@@ -46,11 +46,14 @@ namespace anogamelib
 
         public void SetVisible(bool visible, bool immediate = false)
         {
-            OnShowEvent.Invoke(visible);
             showUpdate(visible);
             if (gameObject.activeSelf == visible)
             {
                 return;
+            }
+            else
+            {
+                OnShowEvent.Invoke(visible);
             }
             m_currentClip = "";
             if (!visible)
