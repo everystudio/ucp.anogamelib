@@ -35,6 +35,7 @@ namespace anogamelib {
             if( param == null)
             {
                 param = new KVSParam() { key = _strKey };
+                list.Add(param);
             }
             param.value = _strValue;
             return true;
@@ -64,6 +65,7 @@ namespace anogamelib {
             if( param != null)
             {
                 param = new KVSParam() { key = _strKey, value = "0" };
+                list.Add(param);
             }
             int temp = int.Parse(param.value);
             temp += _iValue;
