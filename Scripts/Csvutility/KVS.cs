@@ -62,7 +62,7 @@ namespace anogamelib {
         public int AddInt(string _strKey, int _iValue)
         {
             KVSParam param = GetParam(_strKey);
-            if( param != null)
+            if( param == null)
             {
                 param = new KVSParam() { key = _strKey, value = "0" };
                 list.Add(param);

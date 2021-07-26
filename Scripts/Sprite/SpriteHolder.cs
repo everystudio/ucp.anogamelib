@@ -47,13 +47,13 @@ namespace anogamelib
 
 
 
-		private void Awake()
+		private void Start()
 		{
 			foreach (Sprite sprite in sprite_list)
 			{
 				data.Add(new Data(sprite.name, sprite));
 			}
-
+			Debug.Log(SpriteManager.Instance);
 			SpriteManager.Instance.Add(this);
 			gameObject.transform.SetParent(SpriteManager.Instance.gameObject.transform);
 			gameObject.name = holder_name;
