@@ -12,10 +12,12 @@ namespace anogamelib
 
         public override Object FindTarget()
         {
+            /*
             if (UIAssistant.Instance == null)
             {
                 UIAssistant.Instance = FindObjectOfType<UIAssistant>();
             }
+            */
             return UIAssistant.Instance;
         }
 
