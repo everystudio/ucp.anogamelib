@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+#pragma warning disable CS0649
 namespace anogamelib
 {
 	public class SpriteHolder : MonoBehaviour

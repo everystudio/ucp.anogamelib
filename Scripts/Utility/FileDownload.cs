@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System;
+#pragma warning disable CS0618 // 型またはメンバーが旧型式です
 
 namespace anogamelib
 {

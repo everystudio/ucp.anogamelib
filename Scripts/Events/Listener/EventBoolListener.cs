@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
-
-#pragma warning disable 649
+#pragma warning disable CS0649
 namespace anogamelib
 {
-    [AddComponentMenu("Events/BoolEventListener")]
-    public class BoolEventListener : ScriptableEventListener<bool>
+    [AddComponentMenu("Events/EventBoolListener")]
+    public class EventBoolListener : ScriptableEventListener<bool>
     {
         [SerializeField]
         protected EventBool eventObject;
@@ -28,7 +27,9 @@ namespace anogamelib
                     onTrue.Invoke();
                 }
                 else
+                {
                     onFalse.Invoke();
+                }
             });
         }
 

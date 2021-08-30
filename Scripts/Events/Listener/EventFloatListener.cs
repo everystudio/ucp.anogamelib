@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Events;
 namespace anogamelib
 {
+    [AddComponentMenu("Events/EventFloatListener")]
     public class EventFloatListener : ScriptableEventListener<float>
     {
         [SerializeField]
