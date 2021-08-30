@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 namespace anogamelib
 {
+    [AddComponentMenu("Events/EventStringListener")]
     public class EventStringListener : ScriptableEventListener<string>
     {
         [SerializeField]
