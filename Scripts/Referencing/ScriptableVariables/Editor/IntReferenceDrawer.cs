@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEditor;
 namespace anogamelib
 {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(IntReference))]
     public class IntReferenceDrawer : PropertyDrawer
     {
@@ -58,4 +59,5 @@ namespace anogamelib
             EditorGUI.EndProperty();
         }
     }
+#endif
 }

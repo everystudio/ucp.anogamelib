@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
 
 namespace anogamelib
 {
+#if UNITY_EDITOR
     public class AddCoreScene : Editor
     {
         /*
@@ -22,6 +21,7 @@ namespace anogamelib
         }
         */
     }
+#endif
 }
 
 

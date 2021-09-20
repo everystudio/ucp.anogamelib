@@ -36,7 +36,7 @@ namespace anogamelib
             }
         }
     }
-
+#if UNITY_EDITOR
     public abstract class MetaEditor : Editor {
 
         public Object metaTarget {
@@ -60,7 +60,7 @@ namespace anogamelib
             onRepaint.Invoke();
         }
     }
-
+#endif
     public class PrefVariable {
         string key = "";
         public PrefVariable(string _key) {
