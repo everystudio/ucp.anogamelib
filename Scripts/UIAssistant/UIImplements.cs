@@ -37,11 +37,11 @@ namespace anogamelib
 		private IFadeCreator m_fadeCreator;
 		public IFadeCreator fadeCreator { get { return m_fadeCreator; } }
 
-		public UIImplements(IPrefabLoader prefabLoader, ISounder sounder, IFadeCreator fadeCreator)
+		public UIImplements(IPrefabLoader _prefabLoader, ISounder _sounder, IFadeCreator _fadeCreator)
 		{
-			m_prefabLoader = prefabLoader;
-			m_sounder = sounder;
-			m_fadeCreator = fadeCreator;
+			m_prefabLoader = _prefabLoader;
+			m_sounder = _sounder;
+			m_fadeCreator = _fadeCreator;
 		}
 	}
 }

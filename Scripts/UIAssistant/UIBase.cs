@@ -47,8 +47,8 @@ namespace anogamelib
 
 		public UIBase(string _strPrefabPath, UIGroup _group, UIPreset _preset = UIPreset.None, string strBgmName = "") : base(_strPrefabPath)
 		{
-			m_group = group;
-			m_preset = preset;
+			m_group = _group;
+			m_preset = _preset;
 			m_strBgmName = strBgmName;
 
 			if (View3D())

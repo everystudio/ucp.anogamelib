@@ -27,9 +27,9 @@ namespace anogamelib
 
 		private UIImplements m_implements;
 		public static UIImplements implements { get { return m_instance.m_implements; } }
-		public void Implement(IPrefabLoader prefabLoader, ISounder sounder, IFadeCreator fadeCreator)
+		public void Implement(IPrefabLoader _prefabLoader, ISounder _sounder, IFadeCreator _fadeCreator)
 		{
-			m_instance.m_implements = new UIImplements(prefabLoader, sounder, fadeCreator);
+			m_instance.m_implements = new UIImplements(_prefabLoader, _sounder, _fadeCreator);
 		}
 
 		private static UIController m_instance;
@@ -57,12 +57,14 @@ namespace anogamelib
 		{
 			if (_ui == null) { return; }
 			UIBaseLayer layer = new UIBaseLayer(_ui, m_uiLayer);
+			//Debug.Log(layer.ui.group);
 			if (layer.ui.LoadingWithoutFade())
 			{
 				StartCoroutine(layer.Load());
 			}
 			if (ShouldFadeByAdding(_ui))
 			{
+				//Debug.Log("fadein");
 				FadeIn();
 			}
 			m_addingList.Add(layer);
@@ -268,6 +270,7 @@ namespace anogamelib
 			List<UIBaseLayer> list = m_addingList;
 			m_addingList = new List<UIBaseLayer>();
 			bool isFadeIn = IsFadeIn();
+			//Debug.Log(isFadeIn);
 			for (int i = 0; i < list.Count; i++)
 			{
 				UIBaseLayer layer = list[i];
@@ -467,7 +470,7 @@ namespace anogamelib
 			if (m_uiFade != null) { return; }
 
 			if (m_implements.fadeCreator == null) { return; }
-
+			//Debug.Log("fadein2");
 			UIFade fade = m_implements.fadeCreator.Create();
 			AddFront(fade);
 			m_uiFade = m_addingList.Find(v => { return v.ui == fade; });
@@ -475,8 +478,9 @@ namespace anogamelib
 
 		private void FadeOut()
 		{
+			//Debug.Log("fadeout1");
 			if (m_uiFade == null) { return; }
-
+			//Debug.Log("fadeout2");
 			Remove(m_uiFade.ui);
 			m_uiFade = null;
 		}

@@ -28,6 +28,8 @@ namespace anogamelib
 		public void Insert(UIBaseLayer _layer)
 		{
 			int index = FindInsertPosition(_layer.ui.group);
+			//Debug.Log(_layer.ui.group);
+			//Debug.Log(index);
 			if (index < 0)
 			{
 				m_list.Add(_layer);
