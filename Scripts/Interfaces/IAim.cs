@@ -5,6 +5,6 @@ namespace anogamelib
 {
     public interface IAim2D
     {
-        void OnAim(Vector2 direction);
+        void OnAimHandle(Vector2 direction);
     }
 }

@@ -14,6 +14,7 @@ namespace anogamelib
 		[SerializeField]
 		private float m_fPositionScaling = -100;
 
+		
 		private void OnValidate()
 		{
 			if (m_sortingGroup == null)
@@ -28,7 +29,7 @@ namespace anogamelib
 			updateOrder();
 		}
 
-		public void OnMove(Vector2 direction, float velocity)
+		public void OnMoveHandle(Vector2 direction, float velocity)
 		{
 			updateOrder();
 		}
