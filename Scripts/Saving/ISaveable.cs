@@ -5,16 +5,19 @@ using System.Collections;
 using UnityEditor;
 #endif
 
-public interface ISaveable
+namespace anogamelib
 {
-    /// <param name="saveSystem"> JSON data</param>
-    string OnSave();
+    public interface ISaveable
+    {
+        /// <param name="saveSystem"> JSON data</param>
+        string OnSave();
 
-    /// <param name="saveSystem"> JSON data</param>
-    void OnLoad(string data);
+        /// <param name="saveSystem"> JSON data</param>
+        void OnLoad(string data);
 
-    /// <summary>
-    /// Returning true will allow the save to occur, else it will skip the save
-    /// </summary>
-    bool OnSaveCondition();
+        /// <summary>
+        /// Returning true will allow the save to occur, else it will skip the save
+        /// </summary>
+        bool OnSaveCondition();
+    }
 }
