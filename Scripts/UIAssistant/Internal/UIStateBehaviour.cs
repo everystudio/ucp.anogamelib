@@ -25,7 +25,7 @@ namespace anogamelib {
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             AnimatorClipInfo[] infos = animator.GetCurrentAnimatorClipInfo(layerIndex);
-            if(stateInfo.IsName(PlayName) && infos.Length == 0 && m_exitCallbackList != null){
+            if(stateInfo.IsName(PlayName) /*&& infos.Length == 0*/ && m_exitCallbackList != null){
                 m_exitCallbackList(animator);
                 m_exitCallbackList = null;
             }
