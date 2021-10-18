@@ -81,6 +81,7 @@ namespace anogamelib
 				}
 				if( 0 < states.Length)
 				{
+					//Debug.Log(strPlayName);
 					m_animatorArr[i].Play(strPlayName);
 					iCount += 1;
 				}

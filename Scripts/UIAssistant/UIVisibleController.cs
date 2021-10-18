@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace anogamelib
 {
-    public class UIVisibleController : MonoBehaviour
+    public class UIVisibleController// : MonoBehaviour
     {
-        private Dictionary<Component, bool> m_dictComponent = new Dictionary<Component, bool>();
+		private Dictionary<Component, bool> m_dictComponent = new Dictionary<Component, bool>();
 
 		public void SetVisible(GameObject _target, bool _bEnable)
 		{
