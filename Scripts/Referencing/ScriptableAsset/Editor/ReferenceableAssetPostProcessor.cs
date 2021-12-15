@@ -71,8 +71,6 @@ namespace anogamelib
 
                         bool isGuidDuplicate = guidCache.Contains(guid);
 
-                        // Check if guid is valid or duplicate, if so then we assign a new one for the asset.
-                        // And we ensure this gets saved within the editor.
                         if (string.IsNullOrEmpty(getItemData.GetGuid()) || isGuidDuplicate)
                         {
                             getItemData.GenerateNewGuid();
@@ -86,7 +84,6 @@ namespace anogamelib
                         dataBase.values.Add(asset);
                         dataBase.keys.Add(guid);
 
-                        // Fast way to do a lookup in case there is a duplicate guid
                         guidCache.Add(guid);
                     }
                 }
@@ -98,9 +95,6 @@ namespace anogamelib
 
 #if UNITY_EDITOR
 
-    /// <summary>
-    /// Keeps record of all ScriptableAssets, to ensure that every asset is unique with it's own GUID.
-    /// </summary>
     [InitializeOnLoad]
     public class ScriptableAssetCache
     {

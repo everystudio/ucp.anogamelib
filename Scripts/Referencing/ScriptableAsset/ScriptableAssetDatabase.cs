@@ -18,7 +18,6 @@ public class ScriptableAssetDatabase : MonoBehaviour
 
     private void Awake()
     {
-        Debug.LogError("ScriptableAssetDatabase.Awake");
         instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
     }
