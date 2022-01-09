@@ -14,12 +14,20 @@ namespace anogamelib
         private List<ScriptableEventListener<T>> eventListeners = new List<ScriptableEventListener<T>>();
         private List<System.Action<T>> scriptEventListeners = new List<System.Action<T>>();
 
+#if UNITY_EDITOR
+
+
+#endif
+
+
         [System.NonSerialized]
         private T lastParameter;
         public T LastParameter
         {
             get { return lastParameter; }
         }
+        [System.NonSerialized]
+        private bool m_bFirstAdd = true;
 
         [System.NonSerialized]
         private bool hasParameter;
@@ -30,13 +38,16 @@ namespace anogamelib
 
         public void Invoke(T param)
         {
+            //Debug.Log(param);
             for (int i = scriptEventListeners.Count - 1; i >= 0; i--)
             {
                 scriptEventListeners[i].Invoke(param);
             }
 
+            //Debug.Log(eventListeners.Count);
             for (int i = eventListeners.Count - 1; i >= 0; i--)
             {
+                //Debug.Log(eventListeners[i].gameObject.name);
                 eventListeners[i].Dispatch(param);
             }
 
@@ -64,8 +75,17 @@ namespace anogamelib
 
         public void AddListener(ScriptableEventListener<T> listener)
         {
+            if(m_bFirstAdd == true)
+			{
+                eventListeners.Clear();
+                m_bFirstAdd = false;
+            }
+            //Debug.Log(listener.gameObject.name);
+            //Debug.Log(eventListeners.Count);
+
             if (!eventListeners.Contains(listener))
             {
+                //Debug.Log(listener.gameObject.name);
                 eventListeners.Add(listener);
 
                 if (dispatchLastStateOnAdd && hasParameter)

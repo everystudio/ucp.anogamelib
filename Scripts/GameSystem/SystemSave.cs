@@ -37,13 +37,13 @@ public class SystemSave : gamesystem.GameSystem
 
     private void Start()
     {
-        Debug.Log(cachedSaveData);
-        Debug.Log(onGameLoad);
+        //Debug.Log(cachedSaveData);
+        //Debug.Log(onGameLoad);
         onGameLoad.Invoke(cachedSaveData);
     }
     public override void OnLoadSystem()
     {
-        Debug.Log("SaveSystem.OnLoadSystem");
+        //Debug.Log("SaveSystem.OnLoadSystem");
         cachedSaveData = SaveUtility.LoadSave(saveSlot.Value);
         //Debug.Log(cachedSaveData);
         if (cachedSaveData == null)

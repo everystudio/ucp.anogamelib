@@ -14,17 +14,19 @@ namespace anogamelib
 
         public void Dispatch(T parameter)
         {
-            Action?.Invoke(parameter);
+            //Debug.Log(gameObject.name);
+            Action.Invoke(parameter);
         }
 
         public void OnEnable()
         {
-            ScriptableEvent?.AddListener(this);
+            //Debug.Log(gameObject.name);
+            ScriptableEvent.AddListener(this);
         }
 
         public void OnDisable()
         {
-            ScriptableEvent?.RemoveListener(this);
+            ScriptableEvent.RemoveListener(this);
         }
 
         /// <summary>
