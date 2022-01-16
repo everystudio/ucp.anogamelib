@@ -8,6 +8,7 @@ namespace anogamelib
 	public abstract class StateMachineBase<T> : MonoBehaviour where T : StateMachineBase<T>
 	{
 		protected StateBase<T> stateCurrent;
+		protected StateBase<T> stateNext;
 		/*
 		 * しばらく使わないのでカット
 		public UnityEvent OnBegin = new UnityEvent();
@@ -21,6 +22,8 @@ namespace anogamelib
 
 		public void SetState(StateBase<T> _state)
 		{
+			stateNext = _state;
+			/*
 			if (stateCurrent != null)
 			{
 				stateCurrent.OnExitState();
@@ -28,10 +31,25 @@ namespace anogamelib
 			stateCurrent = _state;
 			stateCurrent.OnEnterState();
 			StartCoroutine(stateCurrent.OnEnterStateEnumerator());
+			*/
 		}
 		private void Update()
 		{
 			OnUpdatePrev();
+			if( stateCurrent != stateNext)
+			{
+				if(stateCurrent != null)
+				{
+					stateCurrent.OnExitState();
+				}
+				stateCurrent = stateNext;
+				if (stateCurrent != null)
+				{
+					stateCurrent.OnEnterState();
+					StartCoroutine(stateCurrent.OnEnterStateEnumerator());
+				}
+			}
+
 			if (stateCurrent != null)
 			{
 				stateCurrent.OnUpdateState();
