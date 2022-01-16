@@ -14,6 +14,9 @@ namespace anogamelib
 		[SerializeField]
 		private float m_fPositionScaling = -100;
 
+		[SerializeField]
+		private int m_iOffset = 0;
+
 		
 		private void OnValidate()
 		{
@@ -38,7 +41,7 @@ namespace anogamelib
 		{
 			if (m_sortingGroup != null)
 			{
-				m_sortingGroup.sortingOrder = (int)(transform.position.y * m_fPositionScaling);
+				m_sortingGroup.sortingOrder = (int)(transform.position.y * m_fPositionScaling) + m_iOffset;
 			}
 		}
 
