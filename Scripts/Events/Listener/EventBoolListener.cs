@@ -13,6 +13,9 @@ namespace anogamelib
         private UnityEventBool eventAction = new UnityEventBool();
 
         [SerializeField]
+        private UnityEventBool onResult;
+
+        [SerializeField]
         private UnityEvent onTrue;
 
         [SerializeField]
@@ -22,6 +25,7 @@ namespace anogamelib
         {
             eventAction.AddListener((_state) =>
             {
+                onResult.Invoke(_state);
                 if (_state == true)
                 {
                     onTrue.Invoke();
